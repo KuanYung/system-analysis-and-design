@@ -1,0 +1,25 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      
+      # 添加項目依賴安裝步驟（以Node.js為例）
+      - name: Install Dependencies
+        run: npm install
+
+      # 添加運行測試的步驟
+      - name: Run Tests
+        run: npm test
+
+      # 其他您的項目可能需要的步驟...
